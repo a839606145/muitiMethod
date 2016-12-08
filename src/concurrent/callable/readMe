@@ -1,0 +1,20 @@
+1.Callable 类似于Runnable，不同的是Runnable run方法没有返回值，Callable有返回值Future，
+Runnable 在run中不能抛出异常，Callable可以抛出异常
+2.submit 可以执行Callable 和Runnable ,execute不能执行Callable
+  使用Future 在接收service.submit(callable)
+  使用Furure 的get方法得到返回值（注意get方法会阻塞） 
+             isDone 方法没有阻塞
+ 【线程返回值】
+  （1）使用外部对象 在run中修改外部对象
+  （2）使用Callable 使用Furure接收返回值
+3.使用submit（Runnable,T result）得到Runnable的返回值 
+4.Future方法
+  get() isDone()
+  cancel(boolean)
+  isCancelled() 
+  cancel 能否成功，主要看是否含有 
+      if(Thread.currentThread().isInterrupted()){
+				throw new InterruptedException();
+			},否则 不会中断的
+  get(int ,TimeUnit)
+5.execute 和 submit的区别
