@@ -1,0 +1,15 @@
+常用的类：
+Executor：执行者
+ExecutorService：线程池管理者 //1,2 用来代替Thread
+Semaphore：信号量
+ReentrantLock:独立锁  // 3,4 是lock的功能
+Future：线程结果
+BlockingQueue:阻塞队列
+CompletionService:线程池管理者扩张，可以得到执行结果
+CountDownLatch：等待执行
+CyclicBarrier：公共屏障点
+ScheculedExecutorService:定时 延时任务的执行
+
+写多线程的代码结构：
+（1）你书写功能的线程 实现了Runnable 或者继承了Thread  在你的线程中含有控制自己的对象（这个可以从外界传入）
+（2）你书写线程执行的类，该类中含有 控制自己的对象，然后使用一个线程类在启用这个对象，执行该对象的方法

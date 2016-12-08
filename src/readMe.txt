@@ -1,0 +1,15 @@
+线程安全的类：
+Vector
+Statck
+HashTable
+Enumeraton
+StringBuffer
+CopyOnWriteArraySet
+CopyOnWriteArrayList
+ConcurrentLinkedQueue
+BlockingQueue
+ArrayBlockingQueue
+LinkedBlockingQueue
+PriorityBlockingQueue
+SynchronousQueue
+ConncurrentHashMap
