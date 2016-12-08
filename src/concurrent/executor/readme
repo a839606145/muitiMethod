@@ -1,0 +1,51 @@
+Executor接口：只有一个方法 execute
+  结构：
+  ExecutorService子接口：添加了好多方法 ---实现类 AbstractExecuteService----实现类ThreadPoolExecutor
+  TaskExecutor 子接口
+  ConcurrentExecutorAdapter--
+  ConcurrentTaskExecutor
+  DefaultExecutor
+  DirectExecutor
+  LinearExecutor
+  ThreadPoolTaskExecutor:（类）线程池
+  创建线程池的代码---ExecutorService的子对象：
+  Executors.newFixedThreadPool
+  Executors.newSingleThreadExecutor
+  Executors.newCachedThreadPool //无界限
+  new ThreadPoolExecutor(参数...)
+ 执行线程
+  ExecutorService对象 execute（Thread）
+   实现ExecutorFactory实现自定义线程池，实现newThread(Runnable r)
+   可以为线程修改名字，以及自定义的异常处理
+ ThreadPoolExecutor线程池参数：
+ corePoolSize:核心线程数
+ maxPoolSize：最大线程数
+ keepAliveTime：当线程数大小corePoolSize是，空闲的线程根据时间删除
+ unit：单位
+ workQueue：等待的队列（可以使用LinkedBlockingQueure(一般不会拒绝) synchronousQueue(多个任务拒绝执行) ArrayBlockingQueue）
+  方法：shutDown() 关闭线程池，运行的不抛异常 再添加报异常
+      shutDownNow() 停止线程池，池中等待的线程被销毁 返回等待的线程
+      isShutDown() 判断是否停止
+      isTerminating  isTerminated
+      awaitTerminate() 具有阻塞性
+      setThreadFactory() 定义线程池的创建类
+      setRejectedExecutionHandler()
+      allowsCoreThreadTimeOut()
+      allowsCoreThreadTimeOut(boolean)
+      prestartCoreThread()
+      prestartAllCoreThred();
+      getCompletedTaskCount();
+      afterExecutor()
+      beforeExecutor();
+      remove()//execute执行的线程 没运行可以移除，使用submit执行的线程 不能移除
+      getActiveCount()
+      getPoolSize()
+      getCompletedTaskCount()
+      
+ 拒绝策略：
+   AbortPolicy：抛出拒绝异常
+   CallerRunsPolicy:调用线程执行拒绝的任务
+   DiscardOldestPplicy：将等待的最久的任务删除，放在等待队列上
+   DiscardPolicy：直接丢弃被拒绝的任务 
+      
+ 
