@@ -1,0 +1,18 @@
+1.Timer是以队列的形式执行任务
+2.ScheduledExecutorService接口：定时任务 线程池功能结合
+   实现类 ScheduledThreadPoolExecutor 父类也是ThreadPoolExecutor
+   结合Callable 实现延迟运行
+3.主要方法
+  shcedule(Runnable,delay,unit)-----得到的结果是ScheculedFuture
+  注意：延时任务 不是执行完一个在往下延迟的
+4.scheduleAtFixedRate() 实现周期性任务 任务需要使用runnable的实现类 按开始时间算
+  返回 ScheduledFuture<T> 不能得到返回值
+5.scheduleWithFixedDelay() 实现周期性任务 时间间隔固定 按结束时间算
+6.getQueue ---返回的是BlockingQueue
+7.remove----接收的参数是ScheduledFuture
+8.setExecuteExistiongDelayedTasksAfterShutdownPolicy
+  设置shutdown后是否继续执行 这个是判断一个任务的 不是周期性任务
+9. setContinueExistingPeriodicTasksAfterShutdownPolicy
+ 设置周期性任务 在shutdown后是否继续执行
+10.cancel 取消任务（ScheduledFuture的方法）
+11.setRemoveOnCancelPolicy（取消时，队列中的线程是否要删除）[1.6中没有，1.7中添加]

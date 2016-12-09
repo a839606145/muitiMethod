@@ -1,0 +1,9 @@
+1.completionService 是一个接口，可以实现异步的方式，一边生产新任务，一边处理已完成任务的结果
+仅有一个实现类ExetutorCompletionService
+2.它的创建需要一个线程池Executor，任务的执行也是使用submit
+3.方法 take().get() 得到返回结果，有返回结果不阻塞，没有返回结果会阻塞
+  take() 返回最先完成的Future（得到后 移除了）
+  poll() 获取并移除 下一个完成任务的Future 不会阻塞
+  
+
+

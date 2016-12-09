@@ -47,5 +47,13 @@ Executor接口：只有一个方法 execute
    CallerRunsPolicy:调用线程执行拒绝的任务
    DiscardOldestPplicy：将等待的最久的任务删除，放在等待队列上
    DiscardPolicy：直接丢弃被拒绝的任务 
+ExecutorService 接口提供的方法：
+invokeAny() //第一个任务的执行结果，得到后 就会调用interrupt() 方法 具有阻塞性
+invokeAll() //全部执行完成后得到执行结果 具有阻塞性，只要有任务失败都会在main中捕获
+invokeAny() 只要有一个任务成功，callable中的异常就不会抛出,都失败抛出最后的异常
+invokeAny() //只要一个报错就抛出，下面的就不执行了
+invokeAny(time,unit) 到时发现失败后抛出timeoutException
+invokeAll(time,unit) 到时抛出CancellacatinException
+
       
  
