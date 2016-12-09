@@ -1,4 +1,4 @@
-package multiThread.repast;
+package concurrent.repast;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.Condition;
@@ -46,8 +46,8 @@ public class RepastService {
 			}
 			for(int i=0;i<productPosition.length;i++){
 				if(productPosition[i]==null){
-					productPosition[i]="Êý¾Ý";
-					System.out.println(Thread.currentThread().getName()+"Éú²úÁË"+i);
+					productPosition[i]="ï¿½ï¿½ï¿½";
+					System.out.println(Thread.currentThread().getName()+"ï¿½ï¿½ï¿½ï¿½ï¿½"+i);
 					break;
 				}
 			}
@@ -71,7 +71,7 @@ public class RepastService {
 			for(int i=0;i<productPosition.length;i++){
 				if(productPosition[i]!=null){
 					productPosition[i]=null;
-					System.out.println(Thread.currentThread().getName()+"ÏûºÄÁË"+i);
+					System.out.println(Thread.currentThread().getName()+"ï¿½ï¿½ï¿½ï¿½ï¿½"+i);
 					break;
 				}
 			}

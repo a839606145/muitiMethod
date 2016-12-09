@@ -1,4 +1,4 @@
-package multiThread.repast;
+package concurrent.repast;
 
 public class ThreadGet extends Thread{
 	private RepastService getService;

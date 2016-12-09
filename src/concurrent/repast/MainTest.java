@@ -1,4 +1,4 @@
-package multiThread.repast;
+package concurrent.repast;
 
 public class MainTest {
  public static void main(String args[]) throws Exception{
