@@ -31,7 +31,36 @@ Arrays方法：
   	使用transient Entry<E> header 表头；
  	Entry 是一个内部类含有E element;Entry<E> next;Entry<E> previous;是一个双向链表
        含有pop push方法可以作为队列或者栈。
+8.set接口，特点是不允许重复，防止元素重复的原理是重写hashCode 和 equals 方法
+9.HashSet 实现set接口，不安全
+  内部使用HashMap<E,Object> map 来进行数据存储,HashMap 使用内部类Entry<K,V>[] 实现数据存储。
+ HashMap中只有next 节点 是单向的。
+ HashSet中提供了使用LinkedHashMap 创建的Map，来实现 LinkedHashSet.只是一个构造方法是default的，只能同包访问。
+10.LinkedHashSet,继承了Hashset。使用hashset的default构造方法进行构造。
+11.LinkedHashMap 继承了HashMap，里面多了一个头节点，使用双向链表进行组织数据在显示数据加入的顺序，数据的存储仍然使用HashMap中的table数组。
+12.TreeSet 实现了HashSet 然后同时实现了SortedSet 和 NavigableSet接口。
+13.Queue接口 实现了Collection接口.AbstractQueue实现了该接口。PriorityQueue实现了AbstractQueue,是一个非安全的类.对表头进行操作
+14.Deque继承了Queue接口，添加对队尾的处理。LinkedList实现了Deque，ArrayDeque也实现了Deque。
+15.HashMap 不是线程安全的，HashTable是线程安全的，Collection类都不支持多线程删除。
+非阻塞队列：
+ConcurrentHashMap：线程安全的 支持remove
+ConcurrentSkipListMap：支持排序的线程安全的 remove Map
+ConcurrentSkipListSet:支持排序的线程安全的 remove Set(不能重复)
+ConcurrentLinkedQueue
+ConcurrentLinkedDeque
+CopyOnWriteArrayList
+CopyOnWriteArraySet
 
-  
+阻塞队列：
+ArrayBlockingQueue:阻塞等待，有界
+PriorityBlockingQueue：含有排序功能的队列
+LinkedBlockingQueue：无界的阻塞队列
+LinkedBlockingDeque：对两端进行操作
+SynchronousQueue：异步的队列，只能一个使用注意：take先启动
+DelayQueue：队列中存放的数据 含有delay标注，根据标注进行执行
+LinkedTransferQueue:1.7中才有
+
+
+ 
 
 
